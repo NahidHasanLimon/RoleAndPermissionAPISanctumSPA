@@ -11,10 +11,12 @@
     <div>
         <h1>Vue Master Blade File</h1>
     </div>
-    <h1 class="text-3xl font-bold underline">
-        Hello world By Tailwind!
+    <h1 class="text-xl font-bold underline">
+        Hello world By Tailwind from app.blade!
   </h1>
-    <div id="example"></div>
+    <div id="example">
+        {{-- <router-view></router-view> --}}
+    </div>
     @yield('content')
     <script src="{{mix('js/app.js')}}"></script>
 </body>
