@@ -15,6 +15,7 @@
         Hello world By Tailwind!
   </h1>
     <div id="example"></div>
+    @yield('content')
     <script src="{{mix('js/app.js')}}"></script>
 </body>
 </html>
