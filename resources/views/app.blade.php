@@ -8,15 +8,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div>
+    
+    <div id="app">
+        {{-- <router-view></router-view> --}}
+    </div>
+    {{-- <div>
         <h1>Vue Master Blade File</h1>
     </div>
     <h1 class="text-xl font-bold underline">
         Hello world By Tailwind from app.blade!
-  </h1>
-    <div id="example">
-        {{-- <router-view></router-view> --}}
-    </div>
+    </h1> --}}
     @yield('content')
     <script src="{{mix('js/app.js')}}"></script>
 </body>

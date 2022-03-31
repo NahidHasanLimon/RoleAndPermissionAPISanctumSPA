@@ -15,9 +15,9 @@ Route::view('/movies','show');
  
 Route::view('/blade/login','login');
 
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
+// Route::get('/{any}', function () {
+//     return view('app');
+// })->where('any', '.*');
 
 // Route::get('/', 'MoviesController@index')->name('movies.index');
 // Route::get('/movies/{id}', 'MoviesController@show')->name('movies.show');
