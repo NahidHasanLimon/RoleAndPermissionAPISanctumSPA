@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lara Vue</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    
-    <div id="app">
-        {{-- <router-view></router-view> --}}
-    </div>
-    {{-- <div>
-        <h1>Vue Master Blade File</h1>
-    </div>
-    <h1 class="text-xl font-bold underline">
-        Hello world By Tailwind from app.blade!
-    </h1> --}}
-    @yield('content')
-    <script src="{{mix('js/app.js')}}"></script>
-</body>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <!-- Scripts -->
+        @routes
+        <script src="{{ mix('js/app.js') }}" defer></script>
+        @inertiaHead
+    </head>
+    <body class="font-sans antialiased">
+        @inertia
+
+        @env ('local')
+            <script src="http://localhost:8080/js/bundle.js"></script>
+        @endenv
+    </body>
 </html>

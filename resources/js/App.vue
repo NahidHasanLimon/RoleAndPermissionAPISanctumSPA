@@ -2,16 +2,17 @@
 <Nav></Nav>
   <div class=" flex justify-center items-center">
       <h1 class="text-3xl font-bold ">
-          Its an App Vue component
+          <!-- Its an App Vue component -->
     </h1>
   </div>
-  <div class=" flex justify-center items-center">
+  <!-- <div class=" flex justify-center items-center">
     <ul>
       <li><router-link to="/login"> Login </router-link> </li>
       <li><router-link to="/profile"> Profile </router-link> </li>
+      <li><router-link to="/Movie"> Movie </router-link> </li>
     </ul>
   </div>
-  
+   -->
    <router-view/>
 <!-- <Footer></Footer> -->
 </template>

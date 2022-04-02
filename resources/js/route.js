@@ -3,6 +3,8 @@ import Home from './components/Home.vue'
 import Profile from './components/Profile.vue'
 import Login from './components/Login.vue'
 import Nav from './components/partials/Nav.vue'
+import Blog from './components/Blog.vue'
+import BlogDetails from './components/BlogDetails.vue'
 
 export const routes = [
     {
@@ -24,6 +26,14 @@ export const routes = [
     {
         path:'/nav',
         component:Nav
+    },
+    {
+        path:'/blog',
+        component:Blog
+    }, 
+    {
+        path:'/blog/details',
+        component:BlogDetails
     },
 
 ];
