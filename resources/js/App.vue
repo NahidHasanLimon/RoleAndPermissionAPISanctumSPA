@@ -20,6 +20,7 @@
                     <router-link to="/register" class="nav-item nav-link">Register
                     </router-link>
                     <router-link to="/about" class="nav-item nav-link">About</router-link>
+                    <router-link to="/test" class="nav-item nav-link">Test</router-link>
                 </div>
             </div>
         </nav>

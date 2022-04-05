@@ -5,6 +5,7 @@ import About from '../pages/About';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
+import Test from '../Test';
 
 import Books from '../components/Books';
 import AddBook from '../components/AddBook';
@@ -50,6 +51,11 @@ export const routes = [
         name: 'editbook',
         path: '/books/edit/:id',
         component: EditBook
+    },
+    {
+        name: 'test',
+        path: '/test',
+        component: Test
     },
 ];
 
