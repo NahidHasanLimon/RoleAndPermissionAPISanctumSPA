@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\BookController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\PermissionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanct
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('system-permissions', [PermissionController::class, 'index']);
 
 Route::group(['prefix' => 'books', 'middleware' => 'auth:sanctum'], function () {
     Route::get('/', [BookController::class, 'index']);
