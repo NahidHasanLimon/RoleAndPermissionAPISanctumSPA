@@ -8,12 +8,44 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
+use App\Models\Module;
 
 class UserController extends Controller
 {
     /**
      * Register
      */
+    public function index(Request $request)
+    {
+        
+        //    $user = $request->user();
+           $user = auth()->user();
+           $modules = Module::with('sub_modules')->get();
+           return response()->json(
+            [
+               'success' => true,
+               'modules' => $modules,
+               'user' => $user,
+            ]
+       );
+
+    }
+    public function store_permission(Request $request)
+    {
+        
+        $modules = Module::with('sub_modules')->get();
+        $user = Auth::user();
+        $user->permissions =  json_decode($request->permissions);
+        $user->save();
+        return response()->json(
+                [
+                'success' => true,
+                'user' => $user,
+                ]
+        );
+
+    }
     public function register(Request $request)
     {
         try {

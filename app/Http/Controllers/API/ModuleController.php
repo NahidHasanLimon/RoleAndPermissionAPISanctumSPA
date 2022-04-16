@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Module;
-use App\Models\Permission;
-use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
-
-class PermissionController extends Controller
+use App\Http\Controllers\Controller;
+class ModuleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +14,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $modules = Module::with('sub_modules')->get();
-
-        return response()->json(
-             [
-                'success' => true,
-                'modules' => $modules,
-             ]
-        );
-        
+        //
     }
 
     /**
@@ -47,15 +36,25 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|unique:modules,name',
+        ]);
+        $store = Module::create($request->all());
+        return response()->json(
+            [
+                'success'=>true,
+                'data' => $store
+            ]
+            );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\APIModule  $aPIModule
      * @return \Illuminate\Http\Response
      */
-    public function show(Permission $permission)
+    public function show(APIModule $aPIModule)
     {
         //
     }
@@ -63,10 +62,10 @@ class PermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\APIModule  $aPIModule
      * @return \Illuminate\Http\Response
      */
-    public function edit(Permission $permission)
+    public function edit(APIModule $aPIModule)
     {
         //
     }
@@ -75,10 +74,10 @@ class PermissionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\APIModule  $aPIModule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permission $permission)
+    public function update(Request $request, APIModule $aPIModule)
     {
         //
     }
@@ -86,10 +85,10 @@ class PermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\APIModule  $aPIModule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Permission $permission)
+    public function destroy(APIModule $aPIModule)
     {
         //
     }
